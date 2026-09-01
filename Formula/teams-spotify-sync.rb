@@ -1,12 +1,12 @@
 class TeamsSpotifySync < Formula
   desc "Auto-adjust Spotify volume during Microsoft Teams meetings"
-  homepage "https://github.com/serubin/teams-spotify-sync"
-  url "https://github.com/serubin/teams-spotify-sync/archive/refs/tags/v1.1.1.tar.gz"
+  homepage "https://github.com/Serubin/teams-spotify-sync"
+  url "https://github.com/Serubin/teams-spotify-sync/archive/refs/tags/v1.1.1.tar.gz"
   sha256 "628888b2eeafba2f1bfc4d184433d4f9ae64195f381ea095e7e926d4ed53e77c"
   license "MIT"
 
-  depends_on :macos
   depends_on "jq"
+  depends_on :macos
 
   def install
     bin.install "teams-spotify-sync"
