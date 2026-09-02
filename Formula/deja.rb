@@ -5,13 +5,13 @@
 class Deja < Formula
   desc "Predictive inline shell autosuggestions for zsh (canary builds)"
   homepage "https://github.com/Serubin/deja"
-  version "0.4.1-canary.5"
+  version "0.4.2-canary.6"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/Serubin/deja/releases/download/0.4.1-canary.5/deja_0.4.1-canary.5_darwin_amd64.tar.gz"
-      sha256 "3085be80724e4be50f5ebc245e169f0510cfeff4532493c10c11af5b6ad2cdb8"
+      url "https://github.com/Serubin/deja/releases/download/0.4.2-canary.6/deja_0.4.2-canary.6_darwin_amd64.tar.gz"
+      sha256 "ddfa0ea02afae7650aa7006a6a0c5743cd8140882763e2d16cf373e5b0498dfd"
 
       define_method(:install) do
         if build.head?
@@ -34,8 +34,8 @@ class Deja < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/Serubin/deja/releases/download/0.4.1-canary.5/deja_0.4.1-canary.5_darwin_arm64.tar.gz"
-      sha256 "96fa146a9b2ad67a5207860ce574144555daeac3d4eef1c84acee317e01edd25"
+      url "https://github.com/Serubin/deja/releases/download/0.4.2-canary.6/deja_0.4.2-canary.6_darwin_arm64.tar.gz"
+      sha256 "fae901708167a890aa999af38a0b5d7323ef2574775ed2aadb17ec23cca81981"
 
       define_method(:install) do
         if build.head?
@@ -61,8 +61,8 @@ class Deja < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/Serubin/deja/releases/download/0.4.1-canary.5/deja_0.4.1-canary.5_linux_amd64.tar.gz"
-      sha256 "2fb51b3c3ca053e78ca724d0c785a229b6ac3f74a0b0f721505afeb34b8b85ef"
+      url "https://github.com/Serubin/deja/releases/download/0.4.2-canary.6/deja_0.4.2-canary.6_linux_amd64.tar.gz"
+      sha256 "206492cfca5a1224235902aeabfe6acc8b1baf58c21c9cb0f368b97686885f12"
       define_method(:install) do
         if build.head?
           revision = Utils.git_head(safe: true) || "unknown"
@@ -84,8 +84,8 @@ class Deja < Formula
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/Serubin/deja/releases/download/0.4.1-canary.5/deja_0.4.1-canary.5_linux_arm64.tar.gz"
-      sha256 "f90c5f14e32247e304b7f4ba8b4b78b136bf16b7a86824dc03d3f730e5a995dd"
+      url "https://github.com/Serubin/deja/releases/download/0.4.2-canary.6/deja_0.4.2-canary.6_linux_arm64.tar.gz"
+      sha256 "598139a159969649617f0e254cf588e840079bf4df0b11f8deae362ea68600e0"
       define_method(:install) do
         if build.head?
           revision = Utils.git_head(safe: true) || "unknown"
@@ -130,7 +130,7 @@ class Deja < Formula
   def caveats
     <<~EOS
       This is the canary build — a prebuilt binary from the tip of the `canary`
-      branch as of 0.4.1-canary.5, ahead of the released `deja`. Use
+      branch as of 0.4.2-canary.6, ahead of the released `deja`. Use
       `brew install --HEAD serubin/formula/deja` to build the branch tip
       from source instead.
 
