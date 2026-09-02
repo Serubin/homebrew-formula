@@ -117,8 +117,8 @@ class Deja < Formula
   # Retained so `brew install --HEAD` still builds the tip of canary, ahead
   # of whatever the last canary release was:
   #
-  #   brew install --HEAD serubin/formula/deja
-  #   brew upgrade --fetch-HEAD serubin/formula/deja
+  #   brew install --HEAD serubin/tap/deja
+  #   brew upgrade --fetch-HEAD serubin/tap/deja
   #
   # Go is a build dependency of that path only — the default install is a
   # prebuilt binary.
@@ -131,7 +131,7 @@ class Deja < Formula
     <<~EOS
       This is the canary build — a prebuilt binary from the tip of the `canary`
       branch as of 0.4.2-canary.6, ahead of the released `deja`. Use
-      `brew install --HEAD serubin/formula/deja` to build the branch tip
+      `brew install --HEAD serubin/tap/deja` to build the branch tip
       from source instead.
 
       It shares ~/.local/share/deja with the upstream `deja` formula, including

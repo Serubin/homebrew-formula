@@ -1,9 +1,9 @@
-# homebrew-formula
+# homebrew-tap
 
 Personal Homebrew tap.
 
 ```
-brew tap serubin/formula
+brew tap serubin/tap
 ```
 
 | Formula | |
@@ -17,8 +17,8 @@ brew tap serubin/formula
 | `wallspan` | Wallspan.app, the menu bar app, which bundles the CLI |
 
 ```
-brew install serubin/formula/deja
-brew install --cask --no-quarantine serubin/formula/wallspan
+brew install serubin/tap/deja
+brew install --cask --no-quarantine serubin/tap/wallspan
 ```
 
 The wallspan cask and formula are alternatives, not companions — both claim `wallspan` on
@@ -29,9 +29,10 @@ allow the app under System Settings > Privacy & Security.
 `deja` shares a name with the upstream `giammarco-ferranti/deja/deja`, so use the
 fully-qualified name if you have both taps.
 
-Formerly `serubin/tools`. GitHub redirects the old repository name, but re-tap anyway:
+Formerly `serubin/tools`, then briefly `serubin/formula`. GitHub redirects both old
+repository names here, so an existing tap keeps fetching, but re-tap to get the name right:
 
 ```
-brew untap serubin/tools
-brew tap serubin/formula
+brew untap serubin/tools serubin/formula
+brew tap serubin/tap
 ```

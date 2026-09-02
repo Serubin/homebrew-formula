@@ -15,8 +15,8 @@ class Wallspan < Formula
   # which need a token to fetch and expire after 90 days, so there is no prebuilt artifact
   # for `--HEAD` to install and no revision for `--fetch-HEAD` to compare:
   #
-  #   brew install --HEAD serubin/formula/wallspan
-  #   brew upgrade --fetch-HEAD serubin/formula/wallspan
+  #   brew install --HEAD serubin/tap/wallspan
+  #   brew upgrade --fetch-HEAD serubin/tap/wallspan
   head do
     url "https://github.com/Serubin/WallSpan.git", branch: "main"
     # Package.swift declares swift-tools-version:5.9.
@@ -41,7 +41,7 @@ class Wallspan < Formula
     <<~EOS
       This is the CLI alone. The menu bar app, which bundles the same binary, is:
 
-        brew install --cask serubin/formula/wallspan
+        brew install --cask serubin/tap/wallspan
 
       They both claim `wallspan` on your PATH, so install one or the other.
     EOS
