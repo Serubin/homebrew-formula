@@ -34,7 +34,7 @@ cask "wallspan" do
     Wallspan is ad-hoc signed and not notarised, and Homebrew quarantines the apps it
     installs, so macOS blocks the first launch. Either install it with
 
-      brew install --cask --no-quarantine serubin/formula/wallspan
+      brew install --cask --no-quarantine serubin/tap/wallspan
 
     or open it once, then allow it under System Settings > Privacy & Security.
 
