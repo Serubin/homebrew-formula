@@ -11,10 +11,30 @@ class Wallspan < Formula
   sha256 "0000000000000000000000000000000000000000000000000000000000000000"
   license "GPL-3.0-or-later"
 
+  # Builds the tip of main from source. CI's snapshot builds are upload-artifact uploads,
+  # which need a token to fetch and expire after 90 days, so there is no prebuilt artifact
+  # for `--HEAD` to install and no revision for `--fetch-HEAD` to compare:
+  #
+  #   brew install --HEAD serubin/formula/wallspan
+  #   brew upgrade --fetch-HEAD serubin/formula/wallspan
+  head do
+    url "https://github.com/Serubin/WallSpan.git", branch: "main"
+    # Package.swift declares swift-tools-version:5.9.
+    depends_on xcode: ["15.0", :build]
+  end
+
   depends_on macos: :sonoma
 
   def install
-    bin.install "wallspan"
+    if build.head?
+      # --disable-sandbox: SwiftPM's own sandbox collides with the one Homebrew already
+      # runs the build in. Native arch only — the universal build exists for distribution
+      # and would double compile time here for nothing.
+      system "swift", "build", "--disable-sandbox", "-c", "release"
+      bin.install ".build/release/wallspan"
+    else
+      bin.install "wallspan"
+    end
   end
 
   def caveats
@@ -30,7 +50,11 @@ class Wallspan < Formula
   test do
     # On the release channel `version` prints "wallspan X.Y.Z  (json schema N)"; other
     # channels name the channel first, which is why this matches a prefix rather than a line.
-    assert_match "wallspan #{version}", shell_output("#{bin}/wallspan version")
+    output = shell_output("#{bin}/wallspan version")
+    assert_match(/^wallspan \d+\.\d+\.\d+/, output)
+    # A HEAD build reports whatever the source tree claims, while the formula's version is
+    # the literal "HEAD", so only a stable install can be held to a matching number.
+    assert_match "wallspan #{version}", output unless head?
 
     # `info` is the one command that needs a display, so it is not something a test machine
     # can be held to. These two are what the project's own CI smoke step runs.
