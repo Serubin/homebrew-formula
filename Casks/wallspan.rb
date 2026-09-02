@@ -1,6 +1,6 @@
 cask "wallspan" do
   version "0.1.0"
-  sha256 "0000000000000000000000000000000000000000000000000000000000000000"
+  sha256 "53886c52e2bb0df0d79bd2aa00c00f0cd49fb1bad67bfa4093c580e61e529edb"
 
   url "https://github.com/Serubin/WallSpan/releases/download/v#{version}/Wallspan-#{version}.zip"
   name "Wallspan"
